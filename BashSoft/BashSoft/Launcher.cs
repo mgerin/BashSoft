@@ -10,7 +10,7 @@
     {
         static void Main()
         {
-            IOManager.TraverseDirectory(@"D:\Stuff\SoftUni\BashSoft\BashSoft");
+            IOManager.TraverseDirectory(@"D:\SoftUni\BashSoft\BashSoft");
         }
     }
 }
