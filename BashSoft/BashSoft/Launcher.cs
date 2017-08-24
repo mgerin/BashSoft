@@ -13,9 +13,11 @@
             // IOManager.TraverseDirectory(@"D:\SoftUni\BashSoft\BashSoft");
             // StudentsRepository.InitializeData();
             // StudentsRepository.GetAllStudentsFromCourse("Unity");
-
-            StudentsRepository.InitializeData();
-            StudentsRepository.GetStudentScoresFromCourse("Unity", "Ivan");
+            // StudentsRepository.InitializeData();
+            // StudentsRepository.GetStudentScoresFromCourse("Unity", "Ivan");
+            Tester.CompareContent(
+                @"D:\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\test2.txt",
+                @"D:\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\test3.txt");
         }
     }
 }
