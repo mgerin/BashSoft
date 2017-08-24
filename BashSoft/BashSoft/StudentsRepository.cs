@@ -26,6 +26,27 @@
             }
         }
 
+        public static void GetStudentScoresFromCourse(string courseName, string userName)
+        {
+            if (IsQueryForStudentPossible(courseName, userName))
+            {
+                OutputWriter.DisplayStudent(
+                    new KeyValuePair<string, List<int>>(userName, studentsByCourse[courseName][userName]));
+            }
+        }
+
+        public static void GetAllStudentsFromCourse(string courseName)
+        {
+            if (IsQueryForCoursePossible(courseName))
+            {
+                OutputWriter.WriteMessageOnNewLine($"{courseName}:");
+                foreach (var studentsMarksEntry in studentsByCourse[courseName])
+                {
+                    OutputWriter.DisplayStudent(studentsMarksEntry);
+                }
+            }
+        }
+
         private static void ReadData()
         {
             string input = Console.ReadLine();

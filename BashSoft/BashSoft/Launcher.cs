@@ -10,7 +10,12 @@
     {
         static void Main()
         {
-            IOManager.TraverseDirectory(@"D:\SoftUni\BashSoft\BashSoft");
+            // IOManager.TraverseDirectory(@"D:\SoftUni\BashSoft\BashSoft");
+            // StudentsRepository.InitializeData();
+            // StudentsRepository.GetAllStudentsFromCourse("Unity");
+
+            StudentsRepository.InitializeData();
+            StudentsRepository.GetStudentScoresFromCourse("Unity", "Ivan");
         }
     }
 }
