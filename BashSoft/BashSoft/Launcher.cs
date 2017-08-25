@@ -10,14 +10,19 @@
     {
         static void Main()
         {
-            // IOManager.TraverseDirectory(@"D:\SoftUni\BashSoft\BashSoft");
+            // IOManager.TraverseDirectory(1);
             // StudentsRepository.InitializeData();
             // StudentsRepository.GetAllStudentsFromCourse("Unity");
             // StudentsRepository.InitializeData();
             // StudentsRepository.GetStudentScoresFromCourse("Unity", "Ivan");
-            Tester.CompareContent(
-                @"D:\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\test2.txt",
-                @"D:\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\test3.txt");
+            // Tester.CompareContent(
+            //     @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\test2.txt",
+            //     @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\test3.txt");
+            // IOManager.CreateDirectoryInCurrentFolder("pesho");
+            // IOManager.ChangeCurrentDirectoryAbsolute(@"D:\Stuff\SoftUni\BashSoft");
+            // IOManager.TraverseDirectory(1);
+            IOManager.ChangeCurrentDirectoryRelative("..");
+            IOManager.TraverseDirectory(1);
         }
     }
 }

@@ -54,7 +54,7 @@
                 string actualLine = actualOutputLines[index];
                 string expectedLine = expectedOutputLines[index];
 
-                if (!actualOutputLines.Equals(expectedLine))
+                if (!actualOutputLines[index].Equals(expectedLine))
                 {
                     output = string.Format(
                         $"Mismatch at line {index} -- expected: \"{expectedLine}\", actual: \"{actualLine}\"");
