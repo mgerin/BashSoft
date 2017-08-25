@@ -26,16 +26,23 @@
                 }
 
                 OutputWriter.WriteMessageOnNewLine($"{new string('-', identation)}{currentPath}");
-                foreach (var file in Directory.GetFiles(currentPath))
+                try
                 {
-                    int indexOfLastSlash = file.LastIndexOf("\\");
-                    string fileName = file.Substring(indexOfLastSlash);
-                    OutputWriter.WriteMessageOnNewLine($"{new string('-', indexOfLastSlash) + fileName}");
-                }
+                    foreach (var file in Directory.GetFiles(currentPath))
+                    {
+                        int indexOfLastSlash = file.LastIndexOf("\\");
+                        string fileName = file.Substring(indexOfLastSlash);
+                        OutputWriter.WriteMessageOnNewLine($"{new string('-', indexOfLastSlash) + fileName}");
+                    }
 
-                foreach (var directory in Directory.GetDirectories(currentPath))
+                    foreach (var directory in Directory.GetDirectories(currentPath))
+                    {
+                        subFolders.Enqueue(directory);
+                    }
+                }
+                catch (UnauthorizedAccessException)
                 {
-                    subFolders.Enqueue(directory);
+                    OutputWriter.DisplayMessage(ExceptionMessages.UnauthorizedAccessExceptionMessage);
                 }
             }
         }
