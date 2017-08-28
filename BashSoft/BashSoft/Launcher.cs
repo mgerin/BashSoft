@@ -26,9 +26,11 @@
             // IOManager.ChangeCurrentDirectoryAbsolute(@"C:\Windows");
             // IOManager.TraverseDirectory(20);
 
-            Tester.CompareContent(
-                 @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\actual.txt",
-                 @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\expected.txt");
+            // Tester.CompareContent(
+            //      @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\actual.txt",
+            //      @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\expected.txt");
+
+            // IOManager.CreateDirectoryInCurrentFolder("*2");
         }
     }
 }
