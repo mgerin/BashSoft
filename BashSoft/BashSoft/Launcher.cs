@@ -31,6 +31,7 @@
             //      @"D:\Stuff\SoftUni\BashSoft\Advanced-CSharp\BashSoft-FirstWeek\expected.txt");
 
             // IOManager.CreateDirectoryInCurrentFolder("*2");
+            InputReader.StartReadingCommands();
         }
     }
 }
