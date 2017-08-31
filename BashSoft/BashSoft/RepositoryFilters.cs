@@ -73,7 +73,7 @@
                 totalScore += score;
             }
 
-            var percentageOfAll = totalScore / (scoresOnTask.Count * 100);
+            var percentageOfAll = totalScore / (scoresOnTask.Count * 100.0);
             var mark = (percentageOfAll * 4) + 2;
 
             return mark;

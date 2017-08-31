@@ -10,7 +10,19 @@
     {
         public static void OrderAndTake(Dictionary<string, List<int>> wantedData, string comparison, int studentsToTake)
         {
-            
+            comparison = comparison.ToLower();
+            if (comparison == "ascending")
+            {
+                OrderAndTake(wantedData, studentsToTake, CompareInOrder);
+            }
+            else if (comparison == "descending")
+            {
+                OrderAndTake(wantedData, studentsToTake, CompareDescendingOrder);
+            }
+            else
+            {
+                OutputWriter.DisplayMessage(ExceptionMessages.InvalidComparisonQuery);
+            }
         }
 
         private static void OrderAndTake(
@@ -18,13 +30,19 @@
             int studentsToTake,
             Func<KeyValuePair<string, List<int>>, KeyValuePair<string, List<int>>, int> comparisonFunc)
         {
-            OutputWriter.DisplayStudent(GetSortedStudents(wantedData, studentsToTake, comparisonFunc));
+            Dictionary<string, List<int>> studentsSorted =
+                GetSortedStudents(wantedData, studentsToTake, comparisonFunc);
+
+            foreach (var student in studentsSorted)
+            {
+                OutputWriter.DisplayStudent(student);
+            }
         }
 
         private static Dictionary<string, List<int>> GetSortedStudents(
             Dictionary<string, List<int>> studentsWanted,
             int takeCount,
-            Func<KeyValuePair<string, List<int>>, KeyValuePair<string, List<int>>, int> Comparison)
+            Func<KeyValuePair<string, List<int>>, KeyValuePair<string, List<int>>, int> comparison)
         {
             int valuesTaken = 0;
             Dictionary<string, List<int>> studentsSorted = new Dictionary<string, List<int>>();
@@ -38,7 +56,7 @@
                 {
                     if (!string.IsNullOrEmpty(nextInOrder.Key))
                     {
-                        int comparisonResult = Comparison(studentWithScore, nextInOrder);
+                        int comparisonResult = comparison(studentWithScore, nextInOrder);
                         if (comparisonResult >= 0 && !studentsSorted.ContainsKey(studentWithScore.Key))
                         {
                             nextInOrder = studentWithScore;
